@@ -1,0 +1,163 @@
+<!-- start new html document -->
+<!DOCTYPE html>
+<html>
+
+<head>
+<title> Photoalbum </title>
+<!-- import corresponding css file -->
+<link rel="stylesheet" href="PhotoalbumProject.css">
+</head>
+
+<body>
+<h1> Photoalbum </h1>
+
+<!-- Menus at the top of the page -->
+<!-- normal menu -->
+<div class="menu">
+    <!-- name of the menu and what it's displayed at -->
+    <div class="selected-menu">
+        menu
+    </div>
+    <ul>
+        <!-- first item: button for file upload-->
+        <li>
+            <input type="file"  id="InputButton" name="files" style="display:none" class="InputButton" accept="image/*, video/*"/>
+            <label for="InputButton"  id="ButtonLabel" style="padding-left: 55px; cursor:pointer;" class="ButtonLabel" onclick="uploadMedia()">
+                upload
+            </label>
+            
+        </li>
+
+        <!-- second item: button for creating a new album -->
+        <li>
+            <button id="CreateAlbum" style="display: none;"> </button>
+            <label for="CreateAlbum" id="new" class="new" style="cursor: pointer; padding: 20px; padding-top: 1%; margin-top:0%;" onclick="createAlbum()"> create new album</label>
+        
+        </li>
+    </ul>
+</div>
+<!-- end of general menu -->
+
+<!-- start of second drop down menu -->
+<!-- drop-down menu for selecting languages -->
+<nav>
+    <div class="lang-menu">
+        <div class="selected-lang" id="div2"> language </div>
+        <ul>
+            <!-- first item: language German-->
+            <li>
+                <!-- runs function runDeutsch()-->
+                <a onclick="runDeutsch()" href="#" class="de">
+                    Deutsch
+                </a>
+                <script type="text/javascript">
+                    function runDeutsch(){
+                        //function consists of translations for items that need to be translated
+                            document.querySelector('.selected-lang').textContent= 'Sprache';
+                            document.querySelector('.selected-menu').textContent= 'Menü';
+                            document.querySelector('.ButtonLabel').textContent= 'hochladen';
+                            document.querySelector('.new').textContent= 'neues Album erstellen';
+                            document.getElementById("tutorialText").textContent = 'Neues Album erstellen: Albumname in Textfeld eingeben, Mauszeiger über "Menü" bewegen, und auf "neues Album erstellen" klicken. Medien hochladen: Album auswählen, Mauszeiger über "Menü" bewegen, auf "hochladen" klicken, und Inhalt auswählen. Album anzeigen: Album auswählen und auf "open selected album" klicken. ';
+                            document.getElementById("uploadMessage").textContent = "Medien hochladen in Album: ";
+                            document.getElementById("selectAlbumText").textContent = "Ausgewähltes Album öffnen";
+                    }
+                </script>
+            </li>
+
+            <!-- second item: language French-->
+            <li>
+                <!-- runs function runFrench() on click-->
+                <a onclick="runFrench()" href="#" class="fr">
+                    Français  
+                </a>
+                <script type="text/javascript">
+                    function runFrench() {
+                        //function consists of translations for items that need to be translated
+                        document.querySelector('.selected-lang').textContent= 'langue';
+                        document.querySelector('.selected-menu').textContent= 'menu';
+                        document.querySelector('.ButtonLabel').textContent= 'télécharger';
+                        document.querySelector('.new').textContent= 'creer un nouvel album';
+                        document.getElementById("tutorialText").textContent = `Créer un nouvel album : Saisir le nom de l'album dans le champ de texte, déplacer le curseur de la souris sur "menu" et cliquer sur "creer un nouvel album". Télécharger des médias : Sélectionner l'album, déplacer le curseur de la souris sur "menu", cliquer sur "télécharger" et sélectionner le contenu. Afficher l'album : Sélectionner l'album et cliquer sur "open selected album".`;
+                        document.getElementById("uploadMessage").textContent = "Télécharger les médias dans l'album: ";
+                        document.getElementById("selectAlbumText").textContent = "Ouvrir l'album sélectionné";
+                    }
+                    
+                </script>
+            </li>
+
+            <!-- third item: language Spanish-->
+            <li>
+                <!-- runs function runSpanish() on click-->
+                <a onclick="runSpanish()" href="#" class="es">
+                    Español
+                </a>
+                <script type="text/javascript">
+                    function runSpanish(){
+                        //function consists of translations for items that need to be translated
+                        document.querySelector('.selected-lang').textContent= 'idiomas';
+                        document.querySelector('.selected-menu').textContent= 'menú';
+                        document.querySelector('.ButtonLabel').textContent= 'subir';
+                        document.querySelector('.new').textContent= 'crear un nuevo álbum';
+                        document.getElementById("tutorialText").textContent = 'Crea un nuevo álbum: Escribe el nombre del álbum en el campo de texto, mueve el puntero del ratón sobre "menú" y haz clic en "crear nuevo álbum". Subir media: Selecciona el álbum, mueve el puntero del ratón sobre "menú", haz clic en "subir" y selecciona el contenido. Ver álbum: Selecciona el álbum y haz clic en "open selected Album".';
+                        document.getElementById("uploadMessage").textContent = "Subir medios en álbum: ";
+                        document.getElementById("selectAlbumText").textContent = "Abrir el álbum seleccionado";
+                    }
+                </script>
+            </li>
+
+            <!-- fourth item: language English (default is also English, this is only here to make the button functional)-->
+            <li>
+                <!-- runs function runSpanish() on click-->
+                <a onclick="runEnglish()" href="#" class="en">
+                    English
+                </a>
+                <script type="text/javascript">
+                    function runEnglish(){
+                         //function consists of translations for items that need to be translated
+                        document.querySelector('.selected-lang').textContent= 'languages';
+                        document.querySelector('.selected-menu').textContent= 'menu';
+                        document.querySelector('.ButtonLabel').textContent= 'upload';
+                        document.querySelector('.new').textContent= 'create new album';
+                        document.getElementById("tutorialText").textContent = 'To create album: Enter Album name in textbox, hover over "menu", click on "create new Album". To upload media to album: Select album that is to be uploaded to, hover over "menu", click on "upload", and select file that is to be uploaded. To display media from album: Select album that is to be displayed, click on "open selected album".';
+                        document.getElementById("uploadMessage").textContent = "Upload media to album: ";
+                        document.getElementById("selectAlbumText").textContent = "Open selected Album";
+                    }
+                </script>
+            </li>   
+        </ul>  
+    </div>
+</nav>
+<!-- end of menu -->
+
+<!-- input field for the album name-->
+<input type="text" id="albumNameInput" placeholder="Album Name">
+
+<!-- div that holds the explanatory text-->
+<div id="tutorialText" style="display: none;">To create album: Enter Album name in textbox, hover over "menu", click on "create new album".
+To upload media to album: Select album that is to be uploaded to, hover over "menu", click on "upload", and select file that is to be uploaded.
+To display media from album: Select album that is to be displayed, click on "open selected album".</div>
+<button id="HideShowTutorialText" onclick="HideShowTutorial()">Help/Hilfe/l'assistance/ayuda</button>
+
+<!-- breaks for stylistic reasons-->
+<br>
+<br>
+
+<!-- paragraph above album selection box (lets the user know the function) -->
+<p id="uploadMessage"> Upload media to album: </p>
+
+<!-- Allow the user to select an album -->
+<select id="albumSelect"> </select>
+
+<br>
+
+<!-- list of albums that were created-->
+<ul id="albumList">  </ul>
+
+<!-- Container that stores the individual media elements-->
+<div id="mediaContainer">  </div>
+
+<!-- implementation of javaScript code-->
+<script src="PhotoAlbumProject.js"></script>
+</body>
+</html>
+<!-- end of html document-->

@@ -1,0 +1,215 @@
+/* style the body of the website */
+body{
+    background-color: bisque;
+}
+
+/* drop-down menu for selecting languages */
+nav {
+    width: 960px;
+    margin:0 auto;
+    display: flex;
+    justify-content:space-between;
+    float: left;
+    padding-top: 0px;
+    padding-left: 20px;
+}
+
+/* menu for uploading media or creating a new album*/
+.menu {
+   width: 350px; 
+   margin-top: 0px;
+   padding-left: 150px;
+   color: brown;
+}
+
+/* what happens when the mouse is hovered over the menu items*/
+.menu:hover ul {
+    display: block;
+    position:absolute; /* so that it doesn't move when displayed*/
+    margin-top: 30px;
+}
+
+/* style of the menu item list*/
+.menu ul {
+    margin: 0;
+    padding: 0;
+    background-color: bisque;
+    border: 1px solid brown;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: none;
+    position: absolute;
+}
+
+/* style of the menu itme list inside ul*/
+.menu ul li {
+    list-style: none; /* list style removed for aesthetic purposes*/
+}
+
+/* style of the individual menu items*/
+.menu ul li a {
+    width: 200px;
+    display: block;
+    padding: 5px 10px;
+}
+
+/* menu that is selected */
+.selected-menu {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    line-height: 2;
+    width: 100px;
+    position:absolute;
+}
+
+/* language menu */
+.lang-menu {
+    margin-top: 0px;
+    position:absolute;
+    padding-top: 0px;
+    color: brown;
+}
+
+/* selected language inside the language menu */
+.selected-lang {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    line-height: 2;
+    width: 100px; 
+} 
+
+/* list of languages */
+.lang-menu ul {
+    margin: 0;
+    padding: 0;
+    background-color: bisque;
+    border: 1px solid brown;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 0;
+}
+
+/* list of languages inside ul */
+.lang-menu ul li {
+    list-style: none; /* list style removed as well */
+}
+
+/* individual language items inside the list */
+.lang-menu ul li a{
+    width: 125px;
+    display: block;
+    padding: 5px 10px;
+    list-style: none;
+    color: black;
+    text-decoration: none;
+    text-align: center;
+    color: brown;
+}
+
+/* what happens when the mouse is hovered over the menu item list */
+.lang-menu:hover ul {
+    display: block;
+}
+
+/* style of the header */
+h1{
+    text-align: center;
+    color: brown;
+    font-size: 5vw;
+    margin-top: 0% ;
+    text-decoration: underline;
+}
+
+/* style of the albumlist */
+#albumList {
+    list-style: none;
+    padding-left: 0%;
+    margin-left: 0%;
+    display: inline-flex;
+}
+
+/* style of the list items in the album list */
+#albumList li {
+    padding: 1%;
+}
+
+/* style of the container that holds the media */
+#mediaContainer {
+    width: 100%;
+    height: auto; /* height auto so that it expands only when needed*/
+    background-size: cover;
+    background-position: center;
+} 
+
+/* style of the individual items that are stored in the mediaContainer*/
+.grid-media {
+    width: 375px;
+    height: auto;/* height auto so that the images and videos aren't stretched*/
+    gap: 10px;
+    padding: 10px;
+}
+
+/* text of select "button" for album */
+#selectAlbumText {
+    color: brown;
+}
+
+/* what happens when the mouse hovers over the text */
+#selectAlbumText:hover{
+    cursor: pointer;
+}
+
+/* style of text that explains how the website works */
+#tutorialText {
+    padding: 1%;
+    margin: 10px;
+    border:1px solid brown;
+}
+
+/* button that hides or shows the tutorial */
+#HideShowTutorialText {
+    background-color: rgba(227, 69, 69, 0.744); /* light red*/
+    border-color: rgba(227, 69, 69, 0.744); /* same colour as the background of the button*/
+    text-align: center;
+    float: right;  
+}
+
+/* what happens when the mouse hovers over the button */
+#HideShowTutorialText:hover{
+    cursor: pointer;
+}
+
+/* selction box for albums */
+#albumSelect {
+    height: 25px;
+    width: 30%;
+    border-color: brown;
+    color: brown;
+    text-align: center;
+    background-color: beige;
+}
+
+/* what happens when the mouse hovers over the selction box */
+#albumSelect:hover {
+    cursor: pointer;
+}
+
+/* input box that takes the album name */
+#albumNameInput {
+    margin-left: 40%;
+    margin-top: 10px;
+    margin-bottom: 60px;
+    text-align: center;
+    border: 1px solid brown;
+    background-color: beige;
+}
+
+/* style of text above selected album box */
+#uploadMessage{
+    padding-left: 1%;
+}
