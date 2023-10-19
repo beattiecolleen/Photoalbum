@@ -1,0 +1,59 @@
+Documentation
+
+Break-down of the project
+
+The project I created is a single-page digital photoalbum that uses IndexedDB to store both albums and content. The content that can be stored are all types of photos and videos. 
+The purpose of this website is photo and video storage and display , which resembles old photoalbums, but instead stores the photos and videos in one place by allowing the creation of multiple albums.
+The videos are being displayed and played directly in the browser, instead of having the user download a video player. This was done by adding controls to all media of the type “video”.
+The user has the opportunity to create new albums, upload content to any of the albums that were created, and display the content of each album all on a single HTML page.
+The website provides a very simple way of saving and displaying user-uploaded images and videos in a user-created album. 
+Many of the functions that were originally promised are not possible due to the limitations of indexedDB. A more detailed reason for this can be read in the two chapters below. 
+This website is available in four languages. In German, English, French, and Spanish, as these are the languages I learnt in school or know at least the basics of. 
+I originally wanted to implement a language changing function because I wanted to learn how  to create a drop-down menu. This is definitely not necessary, but it is a nice bonus, I think. 
+Also, in phase 1 I described the purpose of this project using my family as an example and I have family members that speak exclusively English. 
+If they were to use this website they would need to be able to change the language, which makes this function useful and necessary for their specific situation.
+
+Making-of the project & technical approach
+
+The code should solely consist of HTML, CSS, and JavaScript. This makes storage much more difficult. Due to this the only storage option available that allows for storage of large files is IndexedDB. 
+I had originally planned to make this website available to multiple people and allow them access to the data stored in the database via a username and password combination.
+However, since I don’t have a physical server available to me I needed to find a new way of storing data. 
+I have considered using a virtual server, but upon research I found out that this is not possible with just the three programming languages I was supposed to use. 
+Therefore, I had to find another way of storing data. Much research and trial and error went into this. 
+I quickly stumbled upon SessionStorage, which I couldn’t use because the content needed to be stored even if the page is refreshed or the browser is closed and reopened. 
+For a while I had considered LocalStorage, since this is the more permanent way of storing data.
+Sadly, LocalStorage can only store up to 5MB of data. Since the project is a photoalbum and thus is used to store many larger items like images and videos, this was not an option. 
+The largest non-server (thus browser-based) storage option that works with just HTML, CSS, and JavaScript available is indexedDB, which is why I went with this. 
+Even though I found a database, this limited my functionality massively. IndexedDB does not allow for the sharing of data. 
+This means that one indexedDB database cannot be accessed from another browser window, much less another browser opened by another user. 
+This is the reason I can’t implement the sharing of files, which was originally supposed to be one of the main functions of the website.
+I have not found an alternative for this, which is why this will simply not be possible on the website. 
+The content is displayed in a div “mediaContainer” that is updated and reloaded every time an album is displayed, the browser is closed and reopened, or the page is refreshed. 
+By default no album is displayed, but the first album is selected in the selection box. 
+
+
+Lessons learned
+
+I’ve learnt a lot about the indexedDB API and the limitations of indexedDB. Sadly, there weren’t many indexedDB explanations and tutorials available.
+This made the implementation of it very difficult and I’ve had to rewrite the entire code multiple times. 
+In the end, I think I ended up with about 6 or 7 very different versions of the same code until I finally got the functionality I desired. 
+The limitations of indexedDB weren’t all known to me in the beginning because there is so little information on it available. 
+This led to me having to redo everything over and over again and looking for ways to get the desired functionality. 
+For example, I had originally planned to create an entirely new indexedDB database when creating a new album. The content was then to be stored in objectStores. 
+This is not optimal, since there would be way too many databases in the end. 
+Then I thought I could create a new objectStore within the same database every time a new album is created and store the content in these objectStores. 
+Sadly, indexedDB doesn’t allow for the creation of new objectStores upon the click of a button (only of new databases). This is why I finally decided to have one database that contains two objectStores. 
+One that stores the albums and one that stores the content. These are linked so that the content can be uploaded to a certain album. 
+The implementation of this was not that big of a problem, finding out that this is possible was. 
+Many more problems like this occurred and made the creation of this project very difficult and frustrating. It would have been much easier had there been information on the internet available. 
+A similar issue occurred when I tried to implement the caption functionality I promised in phase 1. 
+This was not possible for some reason even though I tried implementing it multiple ways.  I still haven't found out why it would not work. 
+The most promising way I tried implementing it is the same way I linked the content to the album. I created a new objectStore called “captions” that was supposed to store the captions. 
+Every image was assigned an input field that took a user input. Upon the click of a button underneath the input field the caption was stored in the corresponding objectStore. 
+In order to display it I tried linking it to the album like I did the content. Upon doing this the entire website crashed and stopped working. 
+The only way I could resolve this was to take out the captain functionality. For this reason, I also couldn’t implement this. 
+Overall, I learnt many JavaScript and indexedDB functions that I didn’t know existed. 
+I also learnt a lot about different ways of storing data, more specifically SessionStorage, LocalStorage, and most importantly indexedDB databases. 
+CSS grid and flexboxes are more functions that I knew existed but had not worked with yet. For this project I tried these and implemented them in different versions of the code. 
+In general, the project was very useful because I had to implement many functions and ways of coding that I hadn’t worked with before. 
+Additionally, I had to learn many more functions and ways of implementing them like indexedDB, for instance. 
